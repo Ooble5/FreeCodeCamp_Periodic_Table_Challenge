@@ -1,7 +1,7 @@
 #!/bin/bash
 PSQL="psql -X --username=freecodecamp --dbname=periodic_table -t --no-align -c"
 
-# Fix mistakes in database
+# Fix mistakes in properties table
 FIX_WEIGHT_COLUMN=$($PSQL "ALTER TABLE properties RENAME COLUMN weight TO atomic_mass")
 echo $FIX_WEIGHT_COLUMN
 MELTING_POINT_NO_NULL=$($PSQL "ALTER TABLE properties ALTER COLUMN melting_point SET NOT NULL")
